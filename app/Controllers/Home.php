@@ -10,7 +10,6 @@ class Home extends BaseController
     }
 
 
-
     public function loadPage($page){
         echo view('includes/header');
         echo view($page);
