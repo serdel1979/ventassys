@@ -8,3 +8,5 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 $routes->get('/unidades', 'Unidades::index');
+
+$routes->get('/unidades/nuevo', 'Unidades::nuevo');

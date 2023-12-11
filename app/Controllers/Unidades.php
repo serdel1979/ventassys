@@ -12,21 +12,28 @@ class Unidades extends BaseController
     public function __construct(){
         $this->unidades = new UnidadesModel();
     }
-    public function index($activo = 1)
+
+
+    public function index()
     {
-        $unidades = $this->unidades->getActivos();
+        $unidades = $this->unidades->getUnidadesActivas();
         
         $data = ['titulo'=>'Unidades','datos'=>$unidades];
-        $this->loadPage('unidades', $data);
+        $this->loadPage('unidades/unidades', $data);
+    }
+    
+
+    public function nuevo(){
+        $this->loadPage('unidades/nuevo');
     }
 
 
-
-    public function loadPage($page, $data = null){
+    public function loadPage($page, $data = []){
         echo view('includes/header');
         echo view($page,$data);
         echo view('includes/footer');
     }
+
 
 
 
