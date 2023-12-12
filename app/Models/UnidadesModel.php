@@ -27,6 +27,11 @@
         public function getUnidadesActivas(){
             return $this->where('activo',1)->findAll();
         }
+
+        public function getUnidadesInactivas(){
+            return $this->where('activo',0)->findAll();
+        }
+          
             
     
        

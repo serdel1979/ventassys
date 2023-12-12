@@ -13,6 +13,9 @@
                         <a title="Ver eliminados" class="btn btn-warning" href="<?php echo base_url(); ?>unidades/eliminados">
                                     Ver eliminados
                         </a>
+                        <a title="Ver eliminados" class="btn btn-warning" href="<?php echo base_url(); ?>unidades">
+                                    Ver todos
+                        </a>
                       </p>
                 </div>
                 <div class="card-body">
@@ -41,7 +44,7 @@
                                             <td><?php echo $unidad['nombre_corto']; ?> </td>
 
                                             <td> 
-                                                <a href="<?php echo base_url(); ?>unidades/elimina/<?php echo $unidad['id']; ?>" class="btn btn-danger">
+                                                <a href="<?php echo base_url(); ?>unidades/eliminar/<?php echo $unidad['id']; ?>" class="btn btn-danger">
                                                 <i class="fa-solid fa-trash"></i>
                                                 </a>
                                                 <a style="margin-left:5px;" href="<?php echo base_url(); ?>unidades/edita/<?php echo $unidad['id']; ?>" class="btn btn-primary">
@@ -52,6 +55,10 @@
                                         <?php } ?>
                                     </tbody>
                                 </table>
+                            <a style="margin-top:10px;" class="btn btn-primary" 
+                                href="<?php echo base_url() ?>">
+                            Volver
+                        </a>
                 </div>
         </div>
        
