@@ -11,6 +11,7 @@ class Unidades extends BaseController
 
     public function __construct(){
         $this->unidades = new UnidadesModel();
+        helper('form');
     }
 
 
@@ -37,10 +38,20 @@ class Unidades extends BaseController
 
     public function insertar(){
         
-        $this->unidades->insert(['nombre'=> $this->request->getPost('nombre'),
-        'nombre_corto'=>$this->request->getPost('nombre_corto')]);
+        if ($_POST && $this->validate(['nombre' => 'required', 'nombre_corto' => 'required'])) {
+            $this->unidades->insert([
+                'nombre' => $_POST['nombre'],
+                'nombre_corto' => $_POST['nombre_corto']
+            ]);
+            return redirect()->to(base_url('unidades'));
+        } else {
+            $error = $this->validator->listErrors();
+        
+            session()->setFlashdata('mensaje',$error);
 
-        return redirect()->to(base_url('unidades'));
+            $this->loadPage('unidades/nuevo');
+        }
+ 
     }
 
     public function edita($id){

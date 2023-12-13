@@ -5,6 +5,7 @@
                 <i class="fas fa-table me-1"></i>
                 Datos de <?php echo strtoupper($titulo); ?>
             </div>
+
                 <div>
                      <p style="margin:10px;">
                         <a title="Agregar nueva unidad" class="btn btn-info" href="<?php echo base_url(); ?>unidades/nuevo">
@@ -19,6 +20,16 @@
                       </p>
                 </div>
                 <div class="card-body">
+                    
+                <?php if (session()->has('mensaje')): ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <?= session('mensaje') ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php endif; ?>
+
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
